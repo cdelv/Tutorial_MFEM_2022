@@ -8,31 +8,31 @@ Hay 2 formas de instalar MFEM. La primera es con Spack (https://spack.io/) y la 
 
 escriban en una terminal 
 
-´´´
+```
 git clone -c feature.manyFiles=true https://github.com/spack/spack.git
-´´´
+```
 
 para instalar MFEM pueden hacer
 
-´´´
+```
 cd spack/bin
 ./spack install mfem
-´´´
+```
 
 o alternativamente
 
-´´´
+```
 source spack/share/spack/setup-env.sh
 spack install mfem
-´´´
+```
 
 En MAC hay que cambiar la extensión por .csh y para arch linux (fish shell) .fish en vez de .sh
 
 Desde la fuente pueden usar el script de bash adjunto o usar los comandos del script como guía para hacer su propia instalación.  Deben tener MPI, Cmake y Make instalados. También pueden seguir las intstrucciones de la página de MFEM.
 
-´´´
+```
 bash install_mfem.sh
-´´´
+```
 
 Todo esto es para linux, sé que se puede en Windows. La instalación en MAC es parecida a la de linux, para procesadores M1 y M2 hay que hacer algunas modificaciones.
 
@@ -42,15 +42,15 @@ Linkear librerias en C++ puede ser complicado, así que pueden usar el Makefile 
 
 Escribir make va a compilar el programa, para correrlo pueden hacer 
 
-´´´
+```
 ./a.out 
-´´´
+```
 
 o si quieren correr en paralelo 
 
-´´´
+```
 mpirun -np 4 ./a.out
-´´´
+```
 
 El 4 significa que quiero usar 4 procesadores. 
 
