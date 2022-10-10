@@ -1,0 +1,8 @@
+a.out
+*.pvd
+*.vtu
+*.pvtu
+hypre/
+mfem/
+metis/
+spack/
