@@ -56,4 +56,4 @@ mpirun -np 4 ./a.out
 
 El 4 significa que quiero usar 4 procesadores. 
 
-Despues de correr el programa se va a crear una carpeta y dentro está la solución de la ecuación. La pueden ver con Paraview.
+Despues de correr el programa se va a crear una carpeta y dentro está la solución de la ecuación. La pueden ver con Paraview https://www.paraview.org/.
