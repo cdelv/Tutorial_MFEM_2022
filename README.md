@@ -1,5 +1,7 @@
 # Tutorial_MFEM_2022
 
+MFEM es una librería de C++ gratis, ligera y ecalable de elementos finitos.  https://mfem.org/.  
+
 ## Instalar MFEM
 
 Hay 2 formas de instalar MFEM. La primera es con Spack (https://spack.io/) y la segunda es desde la fuente. Para la instalación deben tener MPI instalado o seguir las instrucciones en https://mfem.org/building/ para instalar la versión serial. Nosotros vamos a usar la versión paralela. Para usar spack deben tener python.
