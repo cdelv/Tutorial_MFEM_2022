@@ -4,7 +4,7 @@ MFEM es una librería de C++ gratis, ligera y ecalable de elementos finitos.  ht
 
 ## Instalar MFEM
 
-Hay 2 formas de instalar MFEM. La primera es con Spack (https://spack.io/) y la segunda es desde la fuente. Para la instalación deben tener MPI instalado o seguir las instrucciones en https://mfem.org/building/ para instalar la versión serial. Nosotros vamos a usar la versión paralela. Para usar spack deben tener python.
+Hay varias formas de instalar MFEM. Acá vamos a manejar 2 de ellas. La primera es con Spack (https://spack.io/) y la segunda es desde la fuente. Para la instalación deben tener MPI instalado o seguir las instrucciones en https://mfem.org/building/ para instalar la versión serial. Nosotros vamos a usar la versión paralela. Para usar spack deben tener python.
 
 ### Spack:
 
@@ -32,7 +32,7 @@ En MAC hay que cambiar la extensión por .csh y para arch linux (fish shell) .fi
 
 ### Instalación desde la fuente
 
-Desde la fuente pueden usar el script de bash adjunto o usar los comandos del script como guía para hacer su propia instalación.  Deben tener MPI, Cmake y Make instalados. También pueden seguir las intstrucciones de la página de MFEM.
+Desde la fuente pueden usar el script de bash adjunto o usar los comandos del script como guía para hacer su propia instalación. Deben tener MPI, Cmake y Make instalados. También pueden seguir las intstrucciones de la página de MFEM.
 
 ```
 bash install_mfem.sh
@@ -42,7 +42,13 @@ Todo esto es para linux, sé que se puede en Windows. La instalación en MAC es 
 
 ## Correr un programa 
 
-Linkear librerias en C++ puede ser complicado, así que pueden usar el Makefile que preparamos para eso. Deben entrar al Makefile y que colocar el Path de la carpeta de la instalación de mfem y el Makefile va a hacer todo el trabajo. En la misma carpeta debe estar el programa que quieren correr. Dentro del Makefile deben cambiar el nombre del programa que desean correr. 
+Linkear librerias en C++ puede ser complicado, así que pueden usar el Makefile que preparamos para eso. Deben entrar al Makefile y colocar el Path de la carpeta de la instalación de mfem y el Makefile va a hacer todo el trabajo. En la misma carpeta debe estar el programa que quieren correr. Dentro del Makefile deben cambiar el nombre del programa que desean correr. 
+
+```
+CXX = mpic++
+FLAGS = -std=c++11 -O3 $(MFEM_FLAGS) $(HYPRE_INC)
+FILE = Difusion.cpp
+```
 
 Escribir make va a compilar el programa, para correrlo pueden hacer 
 
