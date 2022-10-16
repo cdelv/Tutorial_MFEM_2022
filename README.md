@@ -30,6 +30,8 @@ spack install mfem
 
 En MAC hay que cambiar la extensión por .csh y para arch linux (fish shell) .fish en vez de .sh
 
+### Instalación desde la fuente
+
 Desde la fuente pueden usar el script de bash adjunto o usar los comandos del script como guía para hacer su propia instalación.  Deben tener MPI, Cmake y Make instalados. También pueden seguir las intstrucciones de la página de MFEM.
 
 ```
