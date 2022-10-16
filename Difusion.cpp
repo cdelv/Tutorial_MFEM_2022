@@ -2,9 +2,7 @@
 #include <fstream>
 #include <iostream>
 
-using namespace std;
 using namespace mfem;
-
 //Ecuación de Difusión
 // ∂ₜu - ∇²u = f
 
@@ -52,6 +50,8 @@ int main(int argc, char *argv[])
     // 1. Inicializar MPI y HYPRE.
     Mpi::Init(argc, argv);
     Hypre::Init();
+    tic_toc.Clear(); // Para medir tiempo
+    tic_toc.Start();
 
     // 2. Opciones.
     double Lx = 1.0;
@@ -87,6 +87,9 @@ int main(int argc, char *argv[])
     // 5. Definir el espacio de elementos finitos. Usamos H1.
     H1_FECollection fec(orden, pmesh.Dimension());
     ParFiniteElementSpace fespace(&pmesh, &fec);
+    HYPRE_BigInt n_elementos = fespace.GlobalTrueVSize();
+    if (Mpi::Root())
+       std::cout << "Numero de Elementos: " << n_elementos << std::endl;
 
     // 6. Extraer lista de DOFs de frontera.
     // Definir condiciones de fronteras.
@@ -164,6 +167,11 @@ int main(int argc, char *argv[])
 
     // 12. Liberar la memoria.
     delete ode_solver;
+
+    //13. Reportar tiempo de ejecución del programa
+    tic_toc.Stop();
+    if (Mpi::Root())
+       std::cout << "Tiempo de ejecución: " << tic_toc.RealTime() << "s." << std::endl;
 
     return 0;
 }
